@@ -1,0 +1,6 @@
+{
+  "name": "Sanctuary Live — Sunday Worship Presentation",
+  "description": "FreeShow-ready Sunday Church Service presentation system with a dual-screen operator console and cinematic 16:9 TV/projector worship output.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

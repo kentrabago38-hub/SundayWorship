@@ -1,0 +1,233 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html,
+  body {
+    font-family: var(--font-sans);
+    background-color: #07080b;
+    color: #f5f3ee;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: rgba(212, 175, 99, 0.28);
+    color: #faf8f4;
+  }
+}
+
+@keyframes slow-ken-burns {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.06) translate3d(-0.8%, -0.5%, 0);
+  }
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes light-ray-drift {
+  0% {
+    opacity: 0.28;
+    transform: translate3d(-3%, -2%, 0) rotate(-14deg) scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: translate3d(3%, 1%, 0) rotate(-11deg) scale(1.04);
+  }
+  100% {
+    opacity: 0.28;
+    transform: translate3d(-3%, -2%, 0) rotate(-14deg) scale(1);
+  }
+}
+
+@keyframes ambient-glow-breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translate3d(0, 12px, 0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.75;
+  }
+  80% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate3d(14px, -70px, 0) scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes cloud-drift-a {
+  0% {
+    transform: translate3d(-10%, -2%, 0) scale(1.04);
+    opacity: 0.42;
+  }
+  50% {
+    transform: translate3d(8%, 3%, 0) scale(1.1);
+    opacity: 0.68;
+  }
+  100% {
+    transform: translate3d(-10%, -2%, 0) scale(1.04);
+    opacity: 0.42;
+  }
+}
+
+@keyframes cloud-drift-b {
+  0% {
+    transform: translate3d(9%, 4%, 0) scale(1.08);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate3d(-9%, -3%, 0) scale(1.02);
+    opacity: 0.62;
+  }
+  100% {
+    transform: translate3d(9%, 4%, 0) scale(1.08);
+    opacity: 0.35;
+  }
+}
+
+@keyframes golden-sweep {
+  0% {
+    transform: translate3d(-8%, -4%, 0) rotate(-16deg) scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translate3d(6%, 2%, 0) rotate(-9deg) scale(1.08);
+    opacity: 0.78;
+  }
+  100% {
+    transform: translate3d(-8%, -4%, 0) rotate(-16deg) scale(1);
+    opacity: 0.45;
+  }
+}
+
+@keyframes aurora-wave {
+  0% {
+    transform: translate3d(-6%, 2%, 0) rotate(-4deg) scale(1.02);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translate3d(7%, -4%, 0) rotate(5deg) scale(1.1);
+    opacity: 0.72;
+  }
+  100% {
+    transform: translate3d(-6%, 2%, 0) rotate(-4deg) scale(1.02);
+    opacity: 0.45;
+  }
+}
+
+@keyframes ember-rise {
+  0% {
+    transform: translate3d(0, 18px, 0) scale(0.75);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate3d(-12px, -96px, 0) scale(1.15);
+    opacity: 0;
+  }
+}
+
+.animate-ken-burns {
+  animation: slow-ken-burns 36s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-light-rays {
+  animation: light-ray-drift 18s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-glow-breathe {
+  animation: ambient-glow-breathe 10s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-particle {
+  animation: particle-float var(--particle-duration, 14s) linear infinite;
+  animation-delay: var(--particle-delay, 0s);
+  will-change: transform, opacity;
+}
+
+.animate-cloud-a {
+  animation: cloud-drift-a 32s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-cloud-b {
+  animation: cloud-drift-b 42s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-golden-sweep {
+  animation: golden-sweep 20s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-aurora-wave {
+  animation: aurora-wave 24s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-ember-rise {
+  animation: ember-rise var(--particle-duration, 12s) linear infinite;
+  animation-delay: var(--particle-delay, 0s);
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ken-burns,
+  .animate-light-rays,
+  .animate-glow-breathe,
+  .animate-particle,
+  .animate-cloud-a,
+  .animate-cloud-b,
+  .animate-golden-sweep,
+  .animate-aurora-wave,
+  .animate-ember-rise {
+    animation: none !important;
+  }
+}
+
+/* Subtle dark scrollbar for operator panels */
+.operator-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.operator-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.operator-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+.operator-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
